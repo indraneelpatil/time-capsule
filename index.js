@@ -31,3 +31,15 @@ for(let i=0;i<=10;i++){
 const addNums = (num1,num2) => num1 + num2;
 
 console.log(addNums(5,5));
+
+let count = 0;
+function increment() {
+    console.log("button clicked!");
+    count = count + 1;
+    document.querySelector('#count-el').innerHTML = count
+}
+
+function save() {
+
+    console.log(count);
+}
