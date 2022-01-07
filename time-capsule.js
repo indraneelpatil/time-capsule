@@ -16,9 +16,7 @@ let formResponses = []
 function addDummyData() {
 
     // Create response object
-    const new_response = new FormInfo('Neel Patil','Patil','Hi there');
-    formResponses.push(new_response)
-    formResponses.push(new_response)
+    const new_response = new FormInfo('Neel Patil','Patil','Drift bottles');
     formResponses.push(new_response)
 
 }
