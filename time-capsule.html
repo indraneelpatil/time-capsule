@@ -18,17 +18,20 @@
     height: 100%
   }
 
-  .bgimg {
+  body {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('bottle.jpg');
-    min-height: 100%;
-    background-position: center;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
+
   }
 </style>
 
 <body>
 
-  <div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-container w3-text-white">
 
     <div class="w3-display-topleft w3-padding-large ">
       <button id="back-btn" onclick="location.href='index.html';">Back</button>

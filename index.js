@@ -3,6 +3,7 @@ const send_message_btn = document.querySelector('#send-btn')
 const name_input = document.querySelector('#name-input')
 const email_input = document.querySelector('#email-input')
 const response_input = document.querySelector('#response-input')
+const message_output = document.querySelector('#message-prompt')
 
 /** Variables */
 class FormInfo {
@@ -58,6 +59,9 @@ function formSubmit() {
     name_input.value = ''
     email_input.value = ''
     response_input.value = ''
+
+    // display thank you message
+    message_output.innerHTML = 'Thank you for using the time capsule!'
     
 }
 
