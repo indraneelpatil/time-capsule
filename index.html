@@ -17,6 +17,16 @@
     html {
         height: 100%
     }
+
+    .backgroundContainer { 
+       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('bottle.jpg');
+       background-position-x: center;
+        background-position-y: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
 </style>
 
 <body>
@@ -24,20 +34,20 @@
     <!-- Page content -->
     <div class="w3-content w3-animate-opacity" style="max-width:2000px">
         <!-- Landing section -->
-        <div class="w3-text-white" style="width:100%;height:80em;overflow:hidden">
-            <img src="bottle.jpg" style="min-height: 100%;min-width: 100%;filter: brightness(50%)" alt="drift bottle in the sea">
+        <div class="w3-text-white backgroundContainer" style="width:100%;height:80em;overflow:hidden">
+            <!--<img src="bottle.jpg" style="min-height: 100%;min-width: 100%;filter: brightness(50%)" alt="drift bottle in the sea">-->
             <div class="w3-display-topleft w3-padding-large w3-xlarge">
                 Logo
             </div>
-            <div class="w3-display-middle" style="margin-top:46px">
-                <h1 class="w3-xxxlarge w3-animate-top">MRSD Time Capsule</h1>
+            <div style="margin-top:300px">
+                <h1 class="w3-jumbo w3-animate-top">MRSD Time Capsule</h1>
                 <hr class="w3-border-grey" style="margin:auto;width:40%">
-
-                <p class="w3-large w3-center"> Drift bottles were used in the late 19th century to study ocean currents.
+            
+                <p class="w3-large w3-center" style="margin-left: 20vw;margin-right: 20vw;"> Drift bottles were used in the late 19th century to study ocean currents.
                     They carried messages from the sender and followed the currents until they reached a receiver,
                     in some cases in another century, just like a time capsule. </p>
 
-                <p class="w3-large w3-center"> Use this page to create and send a drift bottle with your imagination of
+                <p class="w3-large w3-center" style="margin-left: 20vw;margin-right: 20vw;"> Use this page to create and send a drift bottle with your imagination of
                     robotics in 2070
                     (only restricted by the laws of physics). Copy of all drift bottles will be sent to you by email
                     in 2070 and will always be visible on this page until then.
@@ -47,7 +57,6 @@
                 <button id="message-create" onclick="document.getElementById('contact').scrollIntoView();"> Create
                     Message </button>
             </div>
-
         </div>
 
         <!-- The Message Section -->
