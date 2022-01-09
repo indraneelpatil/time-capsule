@@ -53,7 +53,8 @@ function formSubmit() {
     addToArray(new_response)
 
     // Save array to local storage
-    localStorage.setItem("timeCapsule", JSON.stringify(formResponses) )
+    //localStorage.setItem("timeCapsule", JSON.stringify(formResponses) )
+    addDataToJSONBin()
 
     // clear the fields
     name_input.value = ''
@@ -65,13 +66,46 @@ function formSubmit() {
     
 }
 
-/** CODE BEGINS HERE */
+const getDataFromJSONbin = async () => {
+    const response = await fetch('https://api.jsonbin.io/v3/b/61da19852675917a628cab48/latest',{
+        headers: {
+            'X-Master-key': '$2b$10$vP8xehgCIvkDiE1XzRLqAeG..q2EPllOys3nZBMw63ypTj5gsSDwO',
+            'X-Bin-Meta' : false
+        }
+    });
+    const myJson = await response.json(); //extract JSON from the http response
+    // do something with myJson
+    return myJson
+  }
 
-let responsesFromLocalStorage = JSON.parse( localStorage.getItem("timeCapsule") )
-if(responsesFromLocalStorage)
-{
-    console.log(responsesFromLocalStorage)
-    formResponses = responsesFromLocalStorage
+const addDataToJSONBin = async () => {
+    const response = await fetch('https://api.jsonbin.io/v3/b/61da19852675917a628cab48', {
+      method: 'PUT',
+      body: JSON.stringify(formResponses), // string or object
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-key': '$2b$10$vP8xehgCIvkDiE1XzRLqAeG..q2EPllOys3nZBMw63ypTj5gsSDwO'
+      }
+    });
+    const myJson = await response.json(); //extract JSON from the http response
+    // do something with myJson
+    console.log(myJson)
+  }
+
+async function main() {
+    let responsesFromJSONBin = await getDataFromJSONbin();
+    //let responsesFromLocalStorage = JSON.parse( localStorage.getItem("timeCapsule") )
+    
+    if(responsesFromJSONBin)
+    {
+        console.log(responsesFromJSONBin)
+        formResponses = responsesFromJSONBin
+    }
+
+    console.log('Size of the response array is :',formResponses.length);
 }
-console.log('Size of the response array is :',formResponses.length);
+
+
+/** CODE BEGINS HERE */
+main().catch(console.log)
 
