@@ -93,6 +93,7 @@ function formSubmit() {
     message_output.innerHTML = 'Thank you for using the time capsule!'
     message_output_1.innerHTML = 'Objective Predictions submitted!'
     message_output_2.innerHTML = 'Subjective Predictions submitted!'
+    send_message_btn.innerHTML = 'SUBMITTED!'
     
 }
 
