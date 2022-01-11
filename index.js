@@ -4,18 +4,20 @@ const name_input = document.querySelector('#name-input')
 const email_input = document.querySelector('#email-input')
 const response_input = document.querySelector('#response-input')
 const message_output = document.querySelector('#message-prompt')
+const message_output_1 = document.querySelector('#msg-op-1')
+const message_output_2 = document.querySelector('#msg-op-2')
 const obj_prompts_input = document.querySelector('#obj-prompts')
 
 /** Variables */
 class FormInfo {
-    constructor(name,email,response) {
+    constructor(name,email,response,votes) {
         this.name = name;
         this.email = email;
         this.response = response;
+        this.votes = votes;
     }
 }
 
-let formResponses = []
 
 const objQuestions = [
     'Robots have replaced humans in any kind of physical manual labour in the workforce',
@@ -32,6 +34,9 @@ const objQuestions = [
     'Sports no longer have human referes',
     'A few of your friends wanted a change and just shifted to mars for a new life'
 ]
+
+let formResponses = []
+let formVotes = []
 
 /** Functions */
 
@@ -62,11 +67,17 @@ function formSubmit() {
     const name = name_input.value
     const email = email_input.value
     const response = response_input.value
+
+    // Get all objective responses
+    for(let i=0;i<objQuestions.length;i++)
+    {
+        formVotes.push(document.querySelector(`input[name="question_${i}"]:checked`).value)
+    }
     
-    console.log('Received '+name +' '+email+ ' '+response)
+    console.log('Received '+name +' '+email+ ' '+response+ ' '+formVotes)
 
     // Create response object
-    const new_response = new FormInfo(name,email,response);
+    const new_response = new FormInfo(name,email,response,formVotes);
     addToArray(new_response)
 
     // Save array to local storage
@@ -80,19 +91,37 @@ function formSubmit() {
 
     // display thank you message
     message_output.innerHTML = 'Thank you for using the time capsule!'
+    message_output_1.innerHTML = 'Objective Predictions submitted!'
+    message_output_2.innerHTML = 'Subjective Predictions submitted!'
     
 }
 
 function displayObjectivePrompts() {
     
-    let listItems = ''
-    for(const question of objQuestions)
+    let listObj = { listItems : ''}
+    let radio_it = 1
+    for(let i=0;i<objQuestions.length;i++)
     {
-        listItems += `<li>${question}</li>`
-        listItems += `<li><br></li>`
+        listObj.listItems += `<li>${objQuestions[i]}`
+        addRadioButton(`question_${i}`,`radio_${radio_it}`,`radio_${radio_it+1}`,listObj)
+        listObj.listItems += '</li>'
+        listObj.listItems += `<li><br></li>`
+        radio_it += 2
     }
 
-    obj_prompts_input.innerHTML = listItems
+    obj_prompts_input.innerHTML = listObj.listItems
+}
+
+function addRadioButton(ques_label,radio_label_1,radio_label_2,listObj) {
+
+    listObj.listItems += `<div class="question">
+                            <div class="question-answer">
+                                <input type="radio" value="1" id="${radio_label_1}" name="${ques_label}" required/>
+                                <label for="${radio_label_1}" class="radio"><span>Yes</span></label>
+                                <input type="radio" value="0" id="${radio_label_2}" name="${ques_label}" required/>
+                                <label for="${radio_label_2}" class="radio"><span>No</span></label>
+                            </div>
+                        </div>`
 }
 
 const getDataFromJSONbin = async () => {

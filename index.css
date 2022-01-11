@@ -20,3 +20,43 @@ input {
     box-sizing: border-box;
     border: 1px solid #5f9341;
 }
+
+input[type=radio] {
+    width: 0;
+    visibility: hidden;
+    }
+    label.radio {
+    position: relative;
+    display: inline-block;
+    margin: 5px 20px 25px 0;
+    cursor: pointer;
+    }
+    .question span {
+    margin-left: 30px;
+    }
+    label.radio:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 2px solid #303f6e;
+    }
+    label.radio:after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 4px;
+    top: 6px;
+    left: 5px;
+    background: transparent;
+    border: 3px solid #303f6e;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+    opacity: 0;
+    }
+    input[type=radio]:checked + label:after {
+    opacity: 1;
+    }

@@ -75,15 +75,12 @@
                                 name="Email">
                         </div>
                     </div>
-                    <input type="radio" value="none" id="radio_1" name="driving"/>
-                    <label for="radio_1" class="radio"><span>Yes</span></label>
-                    <input type="radio" value="none" id="radio_2" name="driving" />
-                    <label for="radio_2" class="radio"><span>No</span></label>
-                    <h3 class="w3-center">Objective prompts</h2>
+
+                    <h3 id="msg-op-1" class="w3-center">Objective predictions (Required) </h2>
                     <ul id='obj-prompts' type='none'>
                     </ul>
 
-                    <h3 class="w3-center">Subjective prompts</h2>
+                    <h3 id="msg-op-2" class="w3-center">Subjective predictions (Optional) </h2>
                     <p> How does the world look with robots of 2060? These prompts are only meant to ignite your thoughts,
                         you may choose to not follow them.
                         <ol>
@@ -94,7 +91,7 @@
                         </ol>
                     </p>
                     
-                    <textarea id='response-input' class="w3-input w3-border" name="Text1" placeholder="Message" required
+                    <textarea id='response-input' class="w3-input w3-border" name="Text1" placeholder="Message"
                         rows="10"></textarea>
                     <button id="send-btn" class="w3-button w3-black w3-section w3-right" type="submit">SEND TO TIME
                         CAPSULE</button>
