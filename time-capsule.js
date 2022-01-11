@@ -48,9 +48,12 @@ function renderResponses() {
     let listItems = ''
     for(const response of formResponses)
     {
-        listItems += `<li>${response.response}</li>`
-        listItems += `<li>${response.name}</li>`
-        listItems += `<li><br></li>`
+        if(response.response)
+        {
+            listItems += `<li>${response.response}</li>`
+            listItems += `<li>${response.name}</li>`
+            listItems += `<li><br></li>`
+        }
 
         // Sanity check
         console.assert(response.votes.length === objQuestions.length)
@@ -66,7 +69,8 @@ function renderResponses() {
     for(let i=0;i<objQuestions.length;i++)
     {
         listObj.listvotes += `<li> <p>${objQuestions[i]}</p>`
-        addBarGraph(100*(formVotes[i]/formResponses.length),listObj)
+        const votePercentage = Math.floor(100*(formVotes[i]/formResponses.length))
+        addBarGraph(votePercentage,listObj)
         listObj.listvotes += '</li>'
         listItems += `<li><br></li>`
     }
