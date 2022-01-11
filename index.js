@@ -4,6 +4,7 @@ const name_input = document.querySelector('#name-input')
 const email_input = document.querySelector('#email-input')
 const response_input = document.querySelector('#response-input')
 const message_output = document.querySelector('#message-prompt')
+const obj_prompts_input = document.querySelector('#obj-prompts')
 
 /** Variables */
 class FormInfo {
@@ -15,6 +16,22 @@ class FormInfo {
 }
 
 let formResponses = []
+
+const objQuestions = [
+    'Robots have replaced humans in any kind of physical manual labour in the workforce',
+    'You have atleast one friend who is a robot',
+    'You own a tesla bot (or an equivalent humanoid) at home who cooks and cleans for you',
+    'You own a fully self driving car (maybe without a steering wheel) and dont remember the last time you actually drove a car',
+    'Your brain has a human computer interface which gives you enhanced cognitive capabilities',
+    'You have artificially intelligent digital twins who can attend online meetings for you',
+    'Robots are allies not enemies',
+    'Super soldiers in the defense forces are robots',
+    'Amazon delivers packages in 15 mins using robots',
+    'Robots play sports and are on TV playing world championships in rugby and football',
+    'Nanobots capable of entering the bloodstream to ‘feed’ cells and extract waste will exist. They will make the normal mode of human food consumption obsolete',
+    'Sports no longer have human referes',
+    'A few of your friends wanted a change and just shifted to mars for a new life'
+]
 
 /** Functions */
 
@@ -66,6 +83,18 @@ function formSubmit() {
     
 }
 
+function displayObjectivePrompts() {
+    
+    let listItems = ''
+    for(const question of objQuestions)
+    {
+        listItems += `<li>${question}</li>`
+        listItems += `<li><br></li>`
+    }
+
+    obj_prompts_input.innerHTML = listItems
+}
+
 const getDataFromJSONbin = async () => {
     const response = await fetch('https://api.jsonbin.io/v3/b/61da19852675917a628cab48/latest',{
         headers: {
@@ -93,6 +122,8 @@ const addDataToJSONBin = async () => {
   }
 
 async function main() {
+    displayObjectivePrompts()
+
     let responsesFromJSONBin = await getDataFromJSONbin();
     //let responsesFromLocalStorage = JSON.parse( localStorage.getItem("timeCapsule") )
     

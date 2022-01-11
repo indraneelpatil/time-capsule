@@ -48,9 +48,9 @@
                     in some cases in another century, just like a time capsule. </p>
 
                 <p class="w3-large w3-center" style="margin-left: 20vw;margin-right: 20vw;"> Use this page to create and send a drift bottle with your imagination of
-                    robotics in 2070
+                    robotics in 2060
                     (only restricted by the laws of physics). Copy of all drift bottles will be sent to you by email
-                    in 2070 and will always be visible on this page until then. So that you can observe everyones' predictions age like fine wine or like bananas.
+                    in 2060 and will always be visible on this page until then. So that you can observe everyones' predictions age like fine wine or like bananas.
                 </p>
 
                 <button id="time-capsule" onclick="location.href='time-capsule.html';"> Enter Time Capsule</button>
@@ -61,8 +61,8 @@
 
         <!-- The Message Section -->
         <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-            <h2 id="message-prompt" class="w3-center">What are robots doing in 2070?</h2>
-            <p class="w3-opacity w3-center">Please use a personal email id which will be reachable in 2070</p>
+            <h2 id="message-prompt" class="w3-center">What are robots doing in 2060?</h2>
+            <p class="w3-opacity w3-center">Please use a personal email id which will be reachable in 2060</p>
             <div class="w3-center">
                 <form action="#" onsubmit="formSubmit();return false">
                     <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
@@ -75,7 +75,25 @@
                                 name="Email">
                         </div>
                     </div>
+                    <input type="radio" value="none" id="radio_1" name="driving"/>
+                    <label for="radio_1" class="radio"><span>Yes</span></label>
+                    <input type="radio" value="none" id="radio_2" name="driving" />
+                    <label for="radio_2" class="radio"><span>No</span></label>
+                    <h3 class="w3-center">Objective prompts</h2>
+                    <ul id='obj-prompts' type='none'>
+                    </ul>
 
+                    <h3 class="w3-center">Subjective prompts</h2>
+                    <p> How does the world look with robots of 2060? These prompts are only meant to ignite your thoughts,
+                        you may choose to not follow them.
+                        <ol>
+                            <li> Will robots of the future look like humans and if so or not which ways will they be similar or different? </li>
+                            <li> What is the one deprecated gadget/technology from your MRSD years that you would miss in 2060? </li>
+                            <li> What are some of your least liked daily tasks that are now done by robots? </li>
+                            <li> How has robotics changed health, transportation, education, tourism ,food and entertainment? </li>
+                        </ol>
+                    </p>
+                    
                     <textarea id='response-input' class="w3-input w3-border" name="Text1" placeholder="Message" required
                         rows="10"></textarea>
                     <button id="send-btn" class="w3-button w3-black w3-section w3-right" type="submit">SEND TO TIME
