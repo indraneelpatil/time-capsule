@@ -20,7 +20,8 @@ class FormInfo {
 
 
 const objQuestions = [
-    'Robots have replaced humans in any kind of physical manual labour in the workforce',
+    'Artificial General Intelligence is a reality',
+    'Robots can do any kind of physical manual labour in the workforce',
     'You have atleast one friend who is a robot',
     'You own a tesla bot (or an equivalent humanoid) at home who cooks and cleans for you',
     'You own a fully self driving car (maybe without a steering wheel) and dont remember the last time you actually drove a car',
@@ -31,7 +32,6 @@ const objQuestions = [
     'Amazon delivers packages in 15 mins using robots',
     'Robots play sports and are on TV playing world championships in rugby and football',
     'Nanobots capable of entering the bloodstream to ‘feed’ cells and extract waste will exist. They will make the normal mode of human food consumption obsolete',
-    'Sports no longer have human referes',
     'A few of your friends wanted a change and just shifted to mars for a new life'
 ]
 
