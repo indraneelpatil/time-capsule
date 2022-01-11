@@ -60,3 +60,23 @@ input[type=radio] {
     input[type=radio]:checked + label:after {
     opacity: 1;
     }
+
+/* Make sure that padding behaves as expected */
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+.bar-container {
+    width: 100%; /* Full width */
+    background-color:transparent; /* Grey background */
+    border:1px solid white;
+    }
+
+.skills {
+    text-align: right; /* Right-align text */
+    padding-top: 10px; /* Add top padding */
+    padding-bottom: 10px; /* Add bottom padding */
+    padding-right: 10px;
+    color: black; /* White text color */
+    background-color: white;
+    }
+
