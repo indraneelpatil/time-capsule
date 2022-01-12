@@ -23,7 +23,6 @@ input {
 
 input[type=radio] {
     width: 0;
-    visibility: hidden;
     }
     label.radio {
     position: relative;
