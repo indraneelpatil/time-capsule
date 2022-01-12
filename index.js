@@ -36,7 +36,6 @@ const objQuestions = [
 ]
 
 let formResponses = []
-let formVotes = []
 
 const delayInMilliseconds = 3000; //3 second
 
@@ -56,7 +55,7 @@ function addToArray(new_response){
     }
 
     if(!duplicateResponse)
-        formResponses.push(new_response);
+        formResponses.unshift(new_response);
 
     console.log('Size of the response array is :',formResponses.length);
 }
@@ -131,46 +130,50 @@ async function main() {
     {
         console.log(responsesFromJSONBin)
         formResponses = responsesFromJSONBin
-    }
-
-    console.log('Size of the response array is :',formResponses.length);
-
-    const name = name_input.value
-    const email = email_input.value
-    const response = response_input.value
-
-    // Get all objective responses
-    for(let i=0;i<objQuestions.length;i++)
-    {
-        formVotes.push(document.querySelector(`input[name="question_${i}"]:checked`).value)
-    }
     
-    console.log('Received '+name +' '+email+ ' '+response+ ' '+formVotes)
 
-    // Create response object
-    const new_response = new FormInfo(name,email,response,formVotes);
-    addToArray(new_response)
+        console.log('Size of the response array is :',formResponses.length);
 
-    // Save array to local storage
-    //localStorage.setItem("timeCapsule", JSON.stringify(formResponses) )
-    addDataToJSONBin()
+        const name = name_input.value
+        const email = email_input.value
+        const response = response_input.value
 
-    // clear the fields
-    name_input.value = ''
-    email_input.value = ''
-    response_input.value = ''
+        // Get all objective responses
+        let formVotes = []
+        for(let i=0;i<objQuestions.length;i++)
+        {
+            formVotes.push(document.querySelector(`input[name="question_${i}"]:checked`).value)
+        }
+        
+        console.log('Received '+name +' '+email+ ' '+response+ ' '+formVotes)
 
-    // display thank you message
-    message_output.innerHTML = 'Thank you for using the time capsule!'
-    message_output_1.innerHTML = 'Objective Predictions submitted!'
-    message_output_2.innerHTML = 'Subjective Predictions submitted!'
-    send_message_btn.innerHTML = 'SUBMITTED!'
-    
-    // Redirect to time capsule because why not
-    setTimeout(function() {
-        //your code to be executed after 3 second
-        window.location.href = "time-capsule.html"
-      }, delayInMilliseconds);
+        // Create response object
+        const new_response = new FormInfo(name,email,response,formVotes);
+        addToArray(new_response)
+
+        // Save array to db
+        //localStorage.setItem("timeCapsule", JSON.stringify(formResponses) )
+        addDataToJSONBin()
+
+        // clear the fields
+        name_input.value = ''
+        email_input.value = ''
+        response_input.value = ''
+
+        // display thank you message
+        message_output.innerHTML = 'Thank you for using the time capsule!'
+        message_output_1.innerHTML = 'Objective Predictions submitted!'
+        message_output_2.innerHTML = 'Subjective Predictions submitted!'
+        send_message_btn.innerHTML = 'SUBMITTED!'
+        
+        // Redirect to time capsule because why not
+        setTimeout(function() {
+            //your code to be executed after 3 second
+            window.location.href = "time-capsule.html"
+        }, delayInMilliseconds);
+    }
+    else
+        alert('Could not connect to DB, please try again?')
 }
 
 
