@@ -123,6 +123,16 @@ const addDataToJSONBin = async () => {
 
 async function main() {
 
+    const name = name_input.value
+    const email = email_input.value
+    const response = response_input.value
+
+    if(!(name && email))
+    {
+        console.log('Name or email empty aborting!')
+        return;
+    }
+
     let responsesFromJSONBin = await getDataFromJSONbin();
     //let responsesFromLocalStorage = JSON.parse( localStorage.getItem("timeCapsule") )
     
@@ -133,10 +143,6 @@ async function main() {
     
 
         console.log('Size of the response array is :',formResponses.length);
-
-        const name = name_input.value
-        const email = email_input.value
-        const response = response_input.value
 
         // Get all objective responses
         let formVotes = []
