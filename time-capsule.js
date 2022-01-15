@@ -50,8 +50,8 @@ function renderResponses() {
     {
         if(response.response)
         {
-            listItems += `<li>${response.response}</li>`
-            listItems += `<li>${response.name}</li>`
+            listItems += `<li class="multiline">${response.response}</li>`
+            listItems += `<li><strong>${response.name}</strong></li>`
             listItems += `<li><br></li>`
         }
 
