@@ -20,19 +20,13 @@ class FormInfo {
 
 
 const objQuestions = [
-    'Artificial General Intelligence is a reality',
-    'Robots can do any kind of physical manual labour in the workforce',
-    'You have atleast one friend who is a robot',
-    'You own a tesla bot (or an equivalent humanoid) at home who cooks and cleans for you',
+    'You have atleast one funny friend who is a robot',
+    'You own a tesla bot (or an equivalent robot) at home who cooks and cleans for you',
     'You own a fully self driving car (maybe without a steering wheel) and dont remember the last time you actually drove a car',
     'Your brain has a human computer interface which gives you enhanced cognitive capabilities',
-    'You have artificially intelligent digital twins who can attend online meetings for you',
-    'Robots are allies not enemies',
-    'Super soldiers in the defense forces are robots',
-    'Amazon delivers packages in 15 mins using robots',
-    'Robots play sports and are on TV playing world championships in rugby and football',
-    'Nanobots capable of entering the bloodstream to ‘feed’ cells and extract waste will exist. They will make the normal mode of human food consumption obsolete',
-    'A few of your friends wanted a change and just shifted to mars for a new life'
+    'Your Amazon packages get delived in 15 mins using robots',
+    'Nanobots capable of entering the bloodstream to ‘feed’ cells and extract waste will exist. So you dont really feel hungry anymore',
+    'A few of your friends wanted a change and just switched jobs to mars for a new life'
 ]
 
 let formResponses = []
